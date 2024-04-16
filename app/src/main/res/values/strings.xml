@@ -1,0 +1,27 @@
+<resources>
+    <string name="app_name">AnimalGallery</string>
+    <string name="title_activity_navigation">NavigationActivity</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="home">Home</string>
+    <string name="search">Search</string>
+    <string name="favorite">Favorite</string>
+    <string name="image_title">Image Title</string>
+    <string name="share">Share</string>
+    <string name="add_to_favorite">Add to favorite</string>
+    <string name="image_description">Image Description</string>
+    <string name="image_provided_by_unsplash">© Image provided by Unsplash</string>
+    <string name="app_logo">App Logo</string>
+    <string name="slogan">Login to personalize your own collection</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="forgot_password">Forgot Password?</string>
+    <string name="login">LOGIN</string>
+    <string name="create_new_account">Create New Account?</string>
+    <string name="register">Register</string>
+    <string name="already_have_an_account">Already have an account?</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="create_new_collection">Create New Collection</string>
+    <string name="log_out">Log out</string>
+</resources>
