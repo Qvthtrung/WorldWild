@@ -24,7 +24,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private lateinit var customAdapter: CustomAdapter
     private lateinit var list: MutableList<AnimalModelAPI>
-    private var urls: String = "https://api.unsplash.com/search/photos/?client_id=B1MEAcq9sTZhPJ3wO0tel73QZPJ6GiXYooyL8sPZ0f4&collections=4760062&query=animals&page="
+    private var urls: String = "https://api.unsplash.com/search/photos/?client_id=B1MEAcq9sTZhPJ3wO0tel73QZPJ6GiXYooyL8sPZ0f4&collections=4760062,3330452&query=animals&page="
     private val random = Random.nextInt(100)
     private var page: Int = random
     private var perPage: String = "&per_page=30"
@@ -79,6 +79,7 @@ class MainActivity : AppCompatActivity() {
             val intent2 = Intent(this, LoginActivity::class.java)
             startActivity(intent2)
         }
+
         fetchImage()
 
 //        binding.btnRefresh.setOnClickListener {
@@ -111,8 +112,13 @@ class MainActivity : AppCompatActivity() {
                         val imageDownloadLinks = imageSlot.getJSONObject("links")
                         val imageDownloadLink = imageDownloadLinks.getString("download")
 
+                        //Tag
+                        val imageTags = imageSlot.getJSONArray("tags")
+                        val imageTag = imageTags.getJSONObject(2)
+                        val animalTag = imageTag.getString("title")
+
                         //pass the image's information to the list
-                        val imageModel = AnimalModelAPI(urls, imageTitle, imageDescription, imageDownloadLink)
+                        val imageModel = AnimalModelAPI(urls, imageTitle, imageDescription, imageDownloadLink, animalTag)
                         list.add(imageModel)
                     }
                     customAdapter.notifyDataSetChanged()

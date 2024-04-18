@@ -7,7 +7,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.RelativeLayout
-import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
@@ -29,6 +28,7 @@ class CustomAdapter(private val context: Context, private var animals: List<Anim
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         val animal = animals[position]
+        var isFavorite = false
         Glide.with(context)
             .load(animal.regular)
             .apply(
@@ -37,6 +37,7 @@ class CustomAdapter(private val context: Context, private var animals: List<Anim
                 .placeholder(R.drawable.ic_baseline_image_24)
                 .override(Target.SIZE_ORIGINAL, Target.SIZE_ORIGINAL))
             .into(holder.image)
+
         holder.rlRoot.setOnClickListener {
             // when you click the image
             val intent = Intent(context, AnimalDetail::class.java)
@@ -44,13 +45,30 @@ class CustomAdapter(private val context: Context, private var animals: List<Anim
             intent.putExtra("imageTitle",animal.imageTitle)
             intent.putExtra("imageDescription",animal.imageDescription)
             intent.putExtra("imageDownloadLink", animal.imageDownloadLink)
+            intent.putExtra("imageTag", animal.tag)
             context.startActivity(intent)
+        }
+
+        holder.addToFavorite.setOnClickListener{
+            //when you liked the image
+            isFavorite = !isFavorite
+            if (isFavorite) {
+                holder.addToFavorite.setImageResource(R.drawable.ic_baseline_favorited_24)
+            } else {
+                holder.addToFavorite.setImageResource(R.drawable.ic_baseline_favorite_24)
+            }
+        }
+
+        holder.btnShare.setOnClickListener{
+
         }
     }
 
     inner class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
         val image = itemView.findViewById<ImageView>(R.id.animalImage)!!
         val rlRoot = itemView.findViewById<RelativeLayout>(R.id.rlroot)!!
+        val addToFavorite = itemView.findViewById<ImageView>(R.id.addToFavorite)!!
+        val btnShare = itemView.findViewById<ImageView>(R.id.btnShare)!!
     }
 
 }

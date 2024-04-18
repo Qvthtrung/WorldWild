@@ -24,4 +24,5 @@
     <string name="confirm_password">Confirm Password</string>
     <string name="create_new_collection">Create New Collection</string>
     <string name="log_out">Log out</string>
+    <string name="related_images">You may also like:</string>
 </resources>

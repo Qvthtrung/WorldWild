@@ -125,8 +125,13 @@ class SearchActivity : AppCompatActivity() {
                         val imageDownloadLinks = imageSlot.getJSONObject("links")
                         val imageDownloadLink = imageDownloadLinks.getString("download")
 
+                        //Tag
+                        val imageTags = imageSlot.getJSONArray("tags")
+                        val imageTag = imageTags.getJSONObject(2)
+                        val animalTag = imageTag.getString("title")
+
                         //pass the image's information to the list
-                        val imageModel = AnimalModelAPI(urls, imageTitle, imageDescription, imageDownloadLink)
+                        val imageModel = AnimalModelAPI(urls, imageTitle, imageDescription, imageDownloadLink, animalTag)
                         list.add(imageModel)
                     }
                     customAdapter.notifyDataSetChanged()
