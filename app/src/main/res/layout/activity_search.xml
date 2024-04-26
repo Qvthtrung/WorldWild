@@ -74,7 +74,7 @@
             android:id="@+id/userManagement"
             android:layout_gravity="fill"
             android:layout_columnWeight="1"
-            android:src="@drawable/ic_baseline_manage_accounts_24"
+            android:src="@drawable/ic_baseline_user_24"
             android:contentDescription="@string/favorite"/>
     </GridLayout>
 </LinearLayout>

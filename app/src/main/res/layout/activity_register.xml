@@ -10,38 +10,61 @@
         android:id="@+id/logo1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="40dp"
         android:contentDescription="@string/app_logo"
         android:scaleX="1.5"
         android:scaleY="1.5"
         android:src="@drawable/logo"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"/>
 
     <TextView
         android:id="@+id/slogan"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="35dp"
         android:fontFamily="@font/acme"
         android:gravity="center"
         android:text="@string/slogan"
         android:textSize="20sp"
         android:textStyle="italic"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.492"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/logo1" />
-
+    <!--Username-->
+    <EditText
+        android:id="@+id/inputName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="25dp"
+        android:layout_marginTop="40dp"
+        android:autofillHints="true"
+        android:background="@drawable/input_bg"
+        android:drawableStart="@drawable/ic_baseline_username_24"
+        android:drawablePadding="10dp"
+        android:ems="10"
+        android:hint="@string/username"
+        android:inputType="textPersonName"
+        android:paddingStart="20dp"
+        android:paddingTop="13dp"
+        android:paddingEnd="20dp"
+        android:paddingBottom="13dp"
+        android:textColor="@color/black"
+        android:textColorHint="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/slogan" />
+    <!--Email-->
     <EditText
         android:id="@+id/inputEmail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="25dp"
         android:layout_marginRight="25dp"
+        android:layout_marginTop="10dp"
         android:autofillHints="true"
         android:background="@drawable/input_bg"
         android:drawableStart="@drawable/ic_baseline_email_24"
@@ -55,17 +78,79 @@
         android:paddingBottom="13dp"
         android:textColor="@color/black"
         android:textColorHint="@color/black"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/slogan"
+        app:layout_constraintTop_toBottomOf="@+id/inputName"
         app:layout_constraintVertical_bias="0.072" />
+    <!--Date of birth-->
+    <EditText
+        android:id="@+id/inputBirthday"
+        android:focusable="false"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="25dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/input_bg"
+        android:drawableStart="@drawable/ic_baseline_dob_24"
+        android:drawablePadding="10dp"
+        android:ems="10"
+        android:hint="@string/date_of_birth"
+        android:inputType="date"
+        android:paddingStart="20dp"
+        android:paddingTop="13dp"
+        android:paddingEnd="20dp"
+        android:paddingBottom="13dp"
+        android:textColor="@color/black"
+        android:textColorHint="@color/black"
+        app:layout_constraintEnd_toEndOf="@+id/inputEmail"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/inputEmail"
+        app:layout_constraintTop_toBottomOf="@+id/inputEmail"
+        android:autofillHints="true"/>
+    <!--Gender-->
+    <RadioGroup
+        android:id="@+id/inputGender"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/input_bg"
+        android:orientation="horizontal"
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="25dp"
+        android:layout_marginTop="10dp"
+        android:paddingStart="16dp"
+        android:paddingEnd="20dp"
+        app:layout_constraintEnd_toEndOf="@+id/inputBirthday"
+        app:layout_constraintStart_toStartOf="@+id/inputBirthday"
+        app:layout_constraintTop_toBottomOf="@+id/inputBirthday">
 
+        <RadioButton
+            android:id="@+id/genderMale"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/acme"
+            android:drawableStart="@drawable/ic_baseline_male_24"
+            android:text="@string/male"
+            android:layout_marginEnd="30dp"
+            android:textSize="20sp" />
+
+        <RadioButton
+            android:id="@+id/genderFemale"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/acme"
+            android:drawableStart="@drawable/ic_baseline_female_24"
+            android:text="@string/female"
+            android:textSize="20sp" />
+    </RadioGroup>
+    <!--Password-->
     <EditText
         android:id="@+id/inputPassword"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="25dp"
+        android:layout_marginTop="10dp"
         android:autofillHints="true"
         android:background="@drawable/input_bg"
         android:drawableStart="@drawable/ic_baseline_shield_24"
@@ -79,16 +164,17 @@
         android:paddingBottom="13dp"
         android:textColor="@color/black"
         android:textColorHint="@color/black"
-        app:layout_constraintEnd_toEndOf="@+id/inputEmail"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/inputEmail"
-        app:layout_constraintTop_toBottomOf="@+id/inputEmail" />
-
+        app:layout_constraintEnd_toEndOf="@+id/inputGender"
+        app:layout_constraintStart_toStartOf="@+id/inputGender"
+        app:layout_constraintTop_toBottomOf="@+id/inputGender" />
+    <!--Confirm password-->
     <EditText
         android:id="@+id/inputConfirmPassword"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="25dp"
+        android:layout_marginTop="10dp"
         android:autofillHints="true"
         android:background="@drawable/input_bg"
         android:drawableStart="@drawable/ic_baseline_shield_24"
@@ -103,7 +189,7 @@
         android:textColor="@color/black"
         android:textColorHint="@color/black"
         app:layout_constraintEnd_toEndOf="@+id/inputPassword"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/inputPassword"
         app:layout_constraintTop_toBottomOf="@+id/inputPassword" />
 
@@ -118,8 +204,7 @@
         android:textSize="17sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="@+id/inputConfirmPassword"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@+id/inputPassword"
+        app:layout_constraintStart_toStartOf="@+id/inputConfirmPassword"
         app:layout_constraintTop_toBottomOf="@+id/inputConfirmPassword" />
 
     <TextView
@@ -133,5 +218,39 @@
         app:layout_constraintEnd_toEndOf="@+id/btnRegister"
         app:layout_constraintStart_toStartOf="@+id/btnRegister"
         app:layout_constraintTop_toBottomOf="@+id/btnRegister" />
+
+    <GridLayout
+        android:id="@+id/gridLayout"
+        android:layout_width="match_parent"
+        android:layout_height="57dp"
+        android:background="#f1f1f1"
+        android:columnCount="3"
+        android:rowCount="1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <ImageView
+            android:id="@+id/home"
+            android:layout_columnWeight="1"
+            android:layout_gravity="fill"
+            android:contentDescription="@string/home"
+            android:src="@drawable/ic_baseline_home_24" />
+
+        <ImageView
+            android:id="@+id/searchBtn"
+            android:layout_columnWeight="1"
+            android:layout_gravity="fill"
+            android:contentDescription="@string/search"
+            android:src="@drawable/ic_baseline_search_24" />
+
+        <ImageView
+            android:id="@+id/userManagement"
+            android:layout_columnWeight="1"
+            android:layout_gravity="fill"
+            android:background="@color/selectedNavigationItem"
+            android:contentDescription="@string/favorite"
+            android:src="@drawable/ic_baseline_user_24" />
+    </GridLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

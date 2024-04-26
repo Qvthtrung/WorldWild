@@ -3,14 +3,48 @@ package com.example.animalgallery.activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AlertDialog
 import com.example.animalgallery.databinding.ActivityUserBinding
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
 
 class UserActivity : AppCompatActivity() {
     private lateinit var binding: ActivityUserBinding
+
+    //Firebase
+    private lateinit var mAuth: FirebaseAuth
+    private var mUser: FirebaseUser? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityUserBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        mAuth = FirebaseAuth.getInstance()
+        mUser = mAuth.currentUser
+
+
+
+        //Log out button
+        binding.btnLogout.setOnClickListener {
+            val builder = AlertDialog.Builder(this)
+            builder.setTitle("Confirm Log Out")
+            builder.setMessage("Do you want to log out?")
+            builder.setPositiveButton("Yes") { _, _ ->
+                // Option Yes
+                mAuth.signOut()
+                val intent = Intent(this, LoginActivity::class.java)
+                intent.flags =
+                    Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TOP
+                startActivity(intent)
+            }
+            builder.setNegativeButton("No") { dialog, _ ->
+                // Option No
+                dialog.dismiss()
+            }
+            val dialog = builder.create()
+            dialog.show()
+        }
 
         //Navigation
         binding.home.setOnClickListener {
@@ -18,7 +52,7 @@ class UserActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-        binding.searchBtn.setOnClickListener{
+        binding.searchBtn.setOnClickListener {
             val intent2 = Intent(this, SearchActivity::class.java)
             startActivity(intent2)
         }

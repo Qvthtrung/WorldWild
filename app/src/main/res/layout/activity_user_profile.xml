@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.UserProfileActivity"
+    android:background="@color/lightGray">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <!--Profile picture-->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            android:background="#5CC09F">
+            <ImageView
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:id="@+id/profilePicture"
+                android:layout_centerInParent="true"
+                android:background="@drawable/no_profile_pic"
+                android:contentDescription="@string/profile_picture"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/greetingText"
+                android:layout_below="@id/profilePicture"
+                android:hint="@string/loading_user_picture"
+                android:textColorHint="@color/black"
+                android:fontFamily="@font/acme"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="5dp"
+                android:textSize="20sp"
+                android:textColor="@color/black"/>
+        </RelativeLayout>
+        <!--User Profile-->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="15dp"
+            android:layout_margin="15dp"
+            android:background="@color/white">
+            <!--Show username-->
+            <ImageView
+                android:layout_width="33dp"
+                android:layout_height="33dp"
+                android:id="@+id/ic_profile"
+                android:background="@drawable/ic_baseline_username_24"
+                android:contentDescription="@string/icon"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/usernameShow"
+                android:layout_alignStart="@id/ic_profile"
+                android:hint="@string/loading"
+                android:layout_marginStart="50dp"
+                android:textSize="25sp"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="15dp"
+                android:layout_below="@id/usernameShow"
+                android:background="@color/darkGray"
+                android:id="@+id/divider_username"/>
+            <!--Show email-->
+            <ImageView
+                android:layout_width="33dp"
+                android:layout_height="33dp"
+                android:id="@+id/ic_email"
+                android:background="@drawable/ic_baseline_email_24"
+                android:contentDescription="@string/icon"
+                android:layout_below="@+id/divider_username"
+                android:layout_marginTop="20dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/emailShow"
+                android:layout_alignStart="@id/ic_email"
+                android:hint="@string/loading"
+                android:layout_marginStart="50dp"
+                android:layout_below="@+id/divider_username"
+                android:layout_marginTop="20dp"
+                android:textSize="25sp"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="15dp"
+                android:layout_below="@id/emailShow"
+                android:background="@color/darkGray"
+                android:id="@+id/divider_email"/>
+
+
+
+        </RelativeLayout>
+
+    </LinearLayout>
+</ScrollView>

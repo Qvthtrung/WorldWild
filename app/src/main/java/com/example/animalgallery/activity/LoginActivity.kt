@@ -6,15 +6,13 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import com.example.animalgallery.databinding.ActivityLoginBinding
-import com.example.animalgallery.databinding.ActivityUserBinding
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException
+import com.google.firebase.auth.FirebaseAuthInvalidUserException
 import com.google.firebase.auth.FirebaseUser
 
 class LoginActivity : AppCompatActivity() {
-    //Layout when not logged in
     private lateinit var binding: ActivityLoginBinding
-    //Layout when logged in
-    private lateinit var binding2: ActivityUserBinding
 
     private val emailPattern = Regex("[a-zA-Z0-9._-]+@[a-z]+\\.[a-z]+")
 
@@ -26,45 +24,34 @@ class LoginActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         mAuth = FirebaseAuth.getInstance()
         mUser = mAuth.currentUser
-        binding2 = ActivityUserBinding.inflate(layoutInflater)
         binding = ActivityLoginBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
-        if(mUser != null) {
-            //When logged in
-            setContentView(binding2.root)
-
-            binding2.btnLogout.setOnClickListener{
-                val builder = AlertDialog.Builder(this)
-                builder.setTitle("Confirm Log Out")
-                builder.setMessage("Do you want to log out?")
-                builder.setPositiveButton("Yes") { _, _ ->
-                    // Option Yes
-                    mAuth.signOut()
-                    recreate()
-                }
-                builder.setNegativeButton("No") { dialog, _ ->
-                    // Option No
-                    dialog.dismiss()
-                }
-                val dialog = builder.create()
-                dialog.show()
-            }
+        binding.btnLogin.setOnClickListener{
+            performLogin()
         }
-        else{
-            //When not logged in
-            setContentView(binding.root)
-
-            binding.btnLogin.setOnClickListener{
-                performLogin()
-            }
-        }
-
-
-
 
         //Navigation
         binding.createNewAccount.setOnClickListener{
             val intent = Intent(this, RegisterActivity::class.java)
+            startActivity(intent)
+        }
+
+        binding.home.setOnClickListener {
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+        }
+
+        binding.searchBtn.setOnClickListener{
+            val intent2 = Intent(this, SearchActivity::class.java)
+            startActivity(intent2)
+        }
+    }
+
+    override fun onStart() {
+        super.onStart()
+        if (mAuth.currentUser != null) {
+            val intent = Intent(this, UserActivity::class.java)
             startActivity(intent)
         }
     }
@@ -90,10 +77,16 @@ class LoginActivity : AppCompatActivity() {
                 if(task.isSuccessful) {
                     dialog.dismiss()
                     sendUserToNextActivity()
-                    Toast.makeText(this, "Login Successful", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, "Login Successfully", Toast.LENGTH_SHORT).show()
                 } else {
                     dialog.dismiss()
-                    Toast.makeText(this, ""+task.exception, Toast.LENGTH_SHORT).show()
+                    try {
+                        throw task.exception!!
+                    } catch (e: FirebaseAuthInvalidUserException) {
+                        binding.inputEmail.error = "User does not exist or is no longer valid"
+                    } catch (e: FirebaseAuthInvalidCredentialsException) {
+                        Toast.makeText(this, "Email or Password are not correct, please try again", Toast.LENGTH_SHORT).show()
+                    }
                 }
             }
         }

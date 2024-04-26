@@ -26,7 +26,7 @@ class AnimalDetail : AppCompatActivity() {
     private lateinit var list: MutableList<AnimalModelAPI>
     private var urls: String = "https://api.unsplash.com/search/photos/?client_id=B1MEAcq9sTZhPJ3wO0tel73QZPJ6GiXYooyL8sPZ0f4&collections=4760062,3330452&query="
     private var page: String = "&page=1"
-    private var perPage: String = "&per_page=10"
+    private var perPage: String = "&per_page=9"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

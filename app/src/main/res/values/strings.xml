@@ -25,4 +25,16 @@
     <string name="create_new_collection">Create New Collection</string>
     <string name="log_out">Log out</string>
     <string name="related_images">You may also like:</string>
+    <string name="username">Username</string>
+    <string name="icon">icon</string>
+    <string name="user_profile">User Profile</string>
+    <string name="liked_images">Liked images</string>
+    <string name="my_collections">My collections</string>
+    <string name="hello_username">Hello, username</string>
+    <string name="profile_picture">Profile Picture</string>
+    <string name="loading_user_picture">Loading User Picture...</string>
+    <string name="loading">Loading</string>
+    <string name="date_of_birth">Date of birth (dd/mm/yyyy)</string>
+    <string name="male">Male</string>
+    <string name="female">Female</string>
 </resources>
