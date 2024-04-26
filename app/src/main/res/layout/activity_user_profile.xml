@@ -35,7 +35,8 @@
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="5dp"
                 android:textSize="20sp"
-                android:textColor="@color/black"/>
+                android:textColor="@color/black"
+                android:textAlignment="center"/>
         </RelativeLayout>
         <!--User Profile-->
         <RelativeLayout
@@ -59,7 +60,7 @@
                 android:layout_alignStart="@id/ic_profile"
                 android:hint="@string/loading"
                 android:layout_marginStart="50dp"
-                android:textSize="25sp"/>
+                android:textSize="20sp"/>
 
             <View
                 android:layout_width="match_parent"
@@ -87,7 +88,7 @@
                 android:layout_marginStart="50dp"
                 android:layout_below="@+id/divider_username"
                 android:layout_marginTop="20dp"
-                android:textSize="25sp"/>
+                android:textSize="20sp"/>
 
             <View
                 android:layout_width="match_parent"
@@ -96,10 +97,69 @@
                 android:layout_below="@id/emailShow"
                 android:background="@color/darkGray"
                 android:id="@+id/divider_email"/>
+            <!--Show date of birth-->
+            <ImageView
+                android:layout_width="33dp"
+                android:layout_height="33dp"
+                android:id="@+id/ic_dob"
+                android:background="@drawable/ic_baseline_dob_24"
+                android:contentDescription="@string/icon"
+                android:layout_below="@+id/divider_email"
+                android:layout_marginTop="20dp"/>
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/dobShow"
+                android:layout_alignStart="@id/ic_dob"
+                android:hint="@string/loading"
+                android:layout_marginStart="50dp"
+                android:layout_below="@+id/divider_email"
+                android:layout_marginTop="20dp"
+                android:textSize="20sp"/>
 
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="15dp"
+                android:layout_below="@id/dobShow"
+                android:background="@color/darkGray"
+                android:id="@+id/divider_dob"/>
+            <!--Show gender-->
+            <ImageView
+                android:layout_width="33dp"
+                android:layout_height="33dp"
+                android:id="@+id/ic_gender"
+                android:background="@drawable/ic_baseline_male_24"
+                android:contentDescription="@string/icon"
+                android:layout_below="@+id/divider_dob"
+                android:layout_marginTop="20dp"/>
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/genderShow"
+                android:layout_alignStart="@id/ic_gender"
+                android:hint="@string/loading"
+                android:layout_marginStart="50dp"
+                android:layout_below="@+id/divider_dob"
+                android:layout_marginTop="20dp"
+                android:textSize="20sp"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="15dp"
+                android:layout_below="@id/genderShow"
+                android:background="@color/darkGray"
+                android:id="@+id/divider_gender"/>
         </RelativeLayout>
 
+        <ProgressBar
+            android:id="@+id/progressBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:visibility="gone"/>
     </LinearLayout>
 </ScrollView>

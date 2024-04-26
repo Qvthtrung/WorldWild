@@ -6,4 +6,5 @@
     <color name="selectedNavigationItem">#DDD1D1</color>
     <color name="lightGray">#EAE2E2</color>
     <color name="darkGray">#A19B9B</color>
+    <color name="lightBlue">#7DABFD</color>
 </resources>

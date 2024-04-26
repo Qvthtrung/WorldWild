@@ -127,11 +127,11 @@ class RegisterActivity : AppCompatActivity() {
                     mUser!!.updateProfile(profileChangeRequest)
 
                     //Store user data to Firebase realtime database
-                    val writeUserDetail = ReadWriteUserDetail(birthday, gender)
+                    val writeUserDetails = ReadWriteUserDetail(birthday, gender)
 
                     //Extracting user reference from database for "Registered Users"
                     val referenceProfile = FirebaseDatabase.getInstance("https://worldwild-79702-default-rtdb.asia-southeast1.firebasedatabase.app/").getReference("Registered Users")
-                    referenceProfile.child(mUser!!.uid).setValue(writeUserDetail).addOnCompleteListener{task2 ->
+                    referenceProfile.child(mUser!!.uid).setValue(writeUserDetails).addOnCompleteListener{task2 ->
                         if(task2.isSuccessful) {
                             Log.d("RegisterActivity", "User data stored successfully")
                             sendUserToNextActivity()

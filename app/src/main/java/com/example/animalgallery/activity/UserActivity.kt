@@ -22,8 +22,15 @@ class UserActivity : AppCompatActivity() {
 
         mAuth = FirebaseAuth.getInstance()
         mUser = mAuth.currentUser
+        val username = mUser!!.displayName
+        val greetingText = "Hello, $username! How was you day?"
+        binding.greeting.text = greetingText
 
-
+        //User profile button
+        binding.userProfile.setOnClickListener{
+            val intent = Intent(this, UserProfileActivity::class.java)
+            startActivity(intent)
+        }
 
         //Log out button
         binding.btnLogout.setOnClickListener {
@@ -37,6 +44,7 @@ class UserActivity : AppCompatActivity() {
                 intent.flags =
                     Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TOP
                 startActivity(intent)
+                finish()
             }
             builder.setNegativeButton("No") { dialog, _ ->
                 // Option No

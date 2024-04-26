@@ -94,8 +94,9 @@ class SearchActivity : AppCompatActivity() {
         }
 
         binding.userManagement.setOnClickListener{
-            val intent2 = Intent(this, LoginActivity::class.java)
-            startActivity(intent2)
+            val intent = Intent(this, LoginActivity::class.java)
+            intent.flags = Intent.FLAG_ACTIVITY_NO_HISTORY
+            startActivity(intent)
         }
 
     }
