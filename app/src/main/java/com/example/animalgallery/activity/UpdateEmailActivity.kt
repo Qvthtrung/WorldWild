@@ -103,7 +103,7 @@ class UpdateEmailActivity : AppCompatActivity() {
                     throw task.exception!!
                 } catch (e:Exception) {
                     binding.inputPassword.error = "Password incorrect, please try again."
-                    Toast.makeText(this, e.message, Toast.LENGTH_LONG).show()
+                    Toast.makeText(this, e.message, Toast.LENGTH_SHORT).show()
                 }
             }
         }

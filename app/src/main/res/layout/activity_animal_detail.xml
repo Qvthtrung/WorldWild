@@ -32,6 +32,7 @@
                 android:layout_alignParentBottom="true"
                 >
                 <ImageView
+                    android:id="@+id/shareButton"
                     android:layout_gravity="fill"
                     android:layout_columnWeight="1"
                     android:src="@drawable/ic_baseline_share_24"
@@ -43,6 +44,7 @@
                     android:src="@drawable/baselineic_ic_file_download_24"
                     android:contentDescription="@string/search"/>
                 <ImageView
+                    android:id="@+id/addToFavoriteButton"
                     android:layout_gravity="fill"
                     android:layout_columnWeight="1"
                     android:src="@drawable/ic_baseline_favorite_24"

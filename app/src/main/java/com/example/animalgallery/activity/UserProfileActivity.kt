@@ -60,6 +60,11 @@ class UserProfileActivity : AppCompatActivity() {
             val intent = Intent(this, UpdateEmailActivity::class.java)
             startActivity(intent)
         }
+
+        binding.btnChangePassword.setOnClickListener{
+            val intent = Intent(this, ChangePasswordActivity::class.java)
+            startActivity(intent)
+        }
     }
 
     private fun showUserProfile(mUser: FirebaseUser) {

@@ -26,6 +26,12 @@ class UserActivity : AppCompatActivity() {
         val greetingText = "Hello, $username! How was you day?"
         binding.greeting.text = greetingText
 
+        //Favorite list button
+        binding.favoriteList.setOnClickListener{
+            val intent = Intent(this, FavoriteListActivity::class.java)
+            startActivity(intent)
+        }
+
         //User profile button
         binding.userProfile.setOnClickListener{
             val intent = Intent(this, UserProfileActivity::class.java)

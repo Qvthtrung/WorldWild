@@ -111,6 +111,9 @@ class SearchActivity : AppCompatActivity() {
                     for (i in 0 until jsonObject.length()) {
                         val imageSlot = jsonObject.getJSONObject(i)
 
+                        //id
+                        val imageId = imageSlot.getString("id")
+
                         //Url to appear on the gallery
                         val imageUrls = imageSlot.getJSONObject("urls")
                         val urls = imageUrls.getString("regular")
@@ -132,7 +135,7 @@ class SearchActivity : AppCompatActivity() {
                         val animalTag = imageTag.getString("title")
 
                         //pass the image's information to the list
-                        val imageModel = AnimalModelAPI(urls, imageTitle, imageDescription, imageDownloadLink, animalTag)
+                        val imageModel = AnimalModelAPI(imageId, urls, imageTitle, imageDescription, imageDownloadLink, animalTag)
                         list.add(imageModel)
                     }
                     customAdapter.notifyDataSetChanged()

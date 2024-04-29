@@ -41,6 +41,7 @@ class CustomAdapter(private val context: Context, private var animals: List<Anim
         holder.rlRoot.setOnClickListener {
             // when you click the image
             val intent = Intent(context, AnimalDetail::class.java)
+            intent.putExtra("imageId",animal.id)
             intent.putExtra("imageUrl",animal.regular)
             intent.putExtra("imageTitle",animal.imageTitle)
             intent.putExtra("imageDescription",animal.imageDescription)
@@ -49,25 +50,20 @@ class CustomAdapter(private val context: Context, private var animals: List<Anim
             context.startActivity(intent)
         }
 
-        holder.addToFavorite.setOnClickListener{
-            //when you liked the image
-            isFavorite = !isFavorite
-            if (isFavorite) {
-                holder.addToFavorite.setImageResource(R.drawable.ic_baseline_favorited_24)
-            } else {
-                holder.addToFavorite.setImageResource(R.drawable.ic_baseline_favorite_24)
-            }
-        }
-
         holder.btnShare.setOnClickListener{
-
+            val shareIntent = Intent().apply {
+                action = Intent.ACTION_SEND
+                type = "image/*" // Set data type to image
+                putExtra(Intent.EXTRA_STREAM, animal.imageDownloadLink) // Share image link
+                addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION) // Grant read permission for receiving application
+            }
+            context.startActivity(Intent.createChooser(shareIntent, "Share via"))
         }
     }
 
     inner class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
         val image = itemView.findViewById<ImageView>(R.id.animalImage)!!
         val rlRoot = itemView.findViewById<RelativeLayout>(R.id.rlroot)!!
-        val addToFavorite = itemView.findViewById<ImageView>(R.id.addToFavorite)!!
         val btnShare = itemView.findViewById<ImageView>(R.id.btnShare)!!
     }
 

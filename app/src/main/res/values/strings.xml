@@ -57,4 +57,10 @@
     <string name="your_current_email_address">Your current email address:</string>
     <string name="your_new_email_address">Your new email address:</string>
     <string name="enter_your_new_email_address">Enter your new email address</string>
+    <string name="update_email">Update email</string>
+    <string name="update_password">Update password</string>
+    <string name="new_password">New password</string>
+    <string name="confirm_new_password">Confirm new password</string>
+    <string name="your_new_password">Your new password:</string>
+    <string name="images_you_ve_liked">Images you\'ve liked</string>
 </resources>
