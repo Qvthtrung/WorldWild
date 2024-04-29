@@ -7,6 +7,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import com.example.animalgallery.databinding.ActivityForgotPasswordBinding
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseAuthInvalidUserException
 
 class ForgotPasswordActivity : AppCompatActivity() {
     private lateinit var binding: ActivityForgotPasswordBinding
@@ -40,7 +41,6 @@ class ForgotPasswordActivity : AppCompatActivity() {
                 resetPassword(email)
             }
         }
-
     }
 
     private fun resetPassword(email: String) {
@@ -55,10 +55,16 @@ class ForgotPasswordActivity : AppCompatActivity() {
                     Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TOP
                 startActivity(intent)
                 finish()
-                dialog.dismiss()
             } else {
-                Toast.makeText(this, "Something went wrong!", Toast.LENGTH_SHORT).show()
+                try {
+                    throw task.exception!!
+                } catch(e: FirebaseAuthInvalidUserException) {
+                    binding.inputEmail.error = "User does not exist or is no longer valid, please try again."
+                } catch(e: Exception) {
+                    Toast.makeText(this, e.message, Toast.LENGTH_SHORT).show()
+                }
             }
+            dialog.dismiss()
         }
     }
 }

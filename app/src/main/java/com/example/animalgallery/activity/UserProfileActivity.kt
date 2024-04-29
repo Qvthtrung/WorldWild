@@ -1,9 +1,14 @@
 package com.example.animalgallery.activity
 
+import android.content.Intent
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
+import com.bumptech.glide.Glide
+import com.bumptech.glide.request.RequestOptions
+import com.example.animalgallery.R
 import com.example.animalgallery.databinding.ActivityUserProfileBinding
 import com.example.animalgallery.model.ReadWriteUserDetail
 import com.google.firebase.auth.FirebaseAuth
@@ -39,6 +44,21 @@ class UserProfileActivity : AppCompatActivity() {
         } else {
             binding.progressBar.visibility = View.VISIBLE
             showUserProfile(mUser!!)
+            binding.profilePicture.setOnClickListener{
+                val intent = Intent(this, UploadProfilePicActivity::class.java)
+                startActivity(intent)
+            }
+        }
+
+        //Navigation
+        binding.btnEditProfile.setOnClickListener{
+            val intent = Intent(this, UpdateProfileActivity::class.java)
+            startActivity(intent)
+        }
+
+        binding.btnChangeEmail.setOnClickListener{
+            val intent = Intent(this, UpdateEmailActivity::class.java)
+            startActivity(intent)
         }
     }
 
@@ -47,6 +67,7 @@ class UserProfileActivity : AppCompatActivity() {
 
         //Extracting User Reference from Database for "Registered Users"
         val referenceProfile: DatabaseReference = FirebaseDatabase.getInstance("https://worldwild-79702-default-rtdb.asia-southeast1.firebasedatabase.app/").getReference("Registered Users")
+        binding.progressBar.visibility = View.VISIBLE
         referenceProfile.child(userID).addListenerForSingleValueEvent(object : ValueEventListener {
             override fun onDataChange(dataSnapshot: DataSnapshot) {
                 val readUserDetails: ReadWriteUserDetail? = dataSnapshot.getValue(ReadWriteUserDetail::class.java)
@@ -62,6 +83,19 @@ class UserProfileActivity : AppCompatActivity() {
                     binding.emailShow.text = email
                     binding.dobShow.text = dob
                     binding.genderShow.text = gender
+
+                    //Profile picture
+                    val uri: Uri? = mUser.photoUrl
+
+                    Glide.with(this@UserProfileActivity)
+                        .load(uri)
+                        .apply(
+                            RequestOptions()
+                                .centerCrop()
+                                .placeholder(R.drawable.ic_baseline_image_24))
+                        .into(binding.profilePicture)
+                } else {
+                    Toast.makeText(this@UserProfileActivity, "Something went wrong!", Toast.LENGTH_SHORT).show()
                 }
                 binding.progressBar.visibility = View.GONE
             }

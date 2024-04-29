@@ -34,7 +34,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.492"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/logo1" />
+        app:layout_constraintTop_toBottomOf="@+id/logo1"/>
 
     <EditText
         android:id="@+id/inputEmail"
@@ -95,7 +95,7 @@
         android:textSize="20sp"
         android:textStyle="italic"
         app:layout_constraintEnd_toEndOf="@+id/inputPassword"
-        app:layout_constraintTop_toBottomOf="@+id/inputPassword" />
+        app:layout_constraintTop_toBottomOf="@+id/inputPassword"/>
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btnLogin"
@@ -105,12 +105,12 @@
         android:background="@color/white"
         android:text="@string/login"
         android:textColor="@color/black"
-        android:textStyle="bold"
         android:textSize="17sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="@+id/forgotPassword"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/inputPassword"
-        app:layout_constraintTop_toBottomOf="@+id/forgotPassword" />
+        app:layout_constraintTop_toBottomOf="@+id/forgotPassword"/>
 
     <TextView
         android:id="@+id/createNewAccount"

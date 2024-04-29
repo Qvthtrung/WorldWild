@@ -117,8 +117,9 @@ class RegisterActivity : AppCompatActivity() {
             mAuth.createUserWithEmailAndPassword(email,password).addOnCompleteListener{task ->
                 if(task.isSuccessful) {
                     dialog.dismiss()
-                    Toast.makeText(this, "User registered successfully", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, "User registered successfully, check your email inbox for verification", Toast.LENGTH_SHORT).show()
                     mUser = mAuth.currentUser
+                    mUser!!.sendEmailVerification()
 
                     //Update username
                     val profileChangeRequest = UserProfileChangeRequest.Builder()

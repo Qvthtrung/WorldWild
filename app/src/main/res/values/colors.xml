@@ -7,4 +7,6 @@
     <color name="lightGray">#EAE2E2</color>
     <color name="darkGray">#A19B9B</color>
     <color name="lightBlue">#7DABFD</color>
+    <color name="blue">#3F51B5</color>
+    <color name="red">#F44336</color>
 </resources>

@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.UpdateProfileActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/logo1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:contentDescription="@string/app_logo"
+            android:scaleX="1.5"
+            android:scaleY="1.5"
+            android:src="@drawable/logo"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <TextView
+            android:id="@+id/instruction"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="35dp"
+            android:fontFamily="@font/acme"
+            android:gravity="center"
+            android:text="@string/edit_your_profile_information_here"
+            android:textSize="20sp"
+            android:textStyle="italic"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/logo1" />
+        <!--Username-->
+        <EditText
+            android:id="@+id/inputName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="25dp"
+            android:layout_marginRight="25dp"
+            android:layout_marginTop="40dp"
+            android:autofillHints="true"
+            android:background="@drawable/input_bg"
+            android:drawableStart="@drawable/ic_baseline_username_24"
+            android:drawablePadding="10dp"
+            android:ems="10"
+            android:hint="@string/username"
+            android:inputType="textPersonName"
+            android:paddingStart="20dp"
+            android:paddingTop="13dp"
+            android:paddingEnd="20dp"
+            android:paddingBottom="13dp"
+            android:textColor="@color/black"
+            android:textColorHint="@color/black"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/instruction" />
+        <!--Email-->
+        <!--Date of birth-->
+
+        <EditText
+            android:id="@+id/inputBirthday"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="25dp"
+            android:layout_marginRight="25dp"
+            android:layout_marginTop="10dp"
+            android:autofillHints="true"
+            android:background="@drawable/input_bg"
+            android:drawableStart="@drawable/ic_baseline_dob_24"
+            android:drawablePadding="10dp"
+            android:ems="10"
+            android:focusable="false"
+            android:hint="@string/date_of_birth"
+            android:inputType="date"
+            android:paddingStart="20dp"
+            android:paddingTop="13dp"
+            android:paddingEnd="20dp"
+            android:paddingBottom="13dp"
+            android:textColor="@color/black"
+            android:textColorHint="@color/black"
+            app:layout_constraintStart_toStartOf="@+id/inputName"
+            app:layout_constraintTop_toBottomOf="@+id/inputName"
+            app:layout_constraintEnd_toEndOf="@id/inputName"/>
+        <!--Gender-->
+        <RadioGroup
+            android:id="@+id/inputGender"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/input_bg"
+            android:orientation="horizontal"
+            android:layout_marginLeft="25dp"
+            android:layout_marginRight="25dp"
+            android:layout_marginTop="10dp"
+            android:paddingStart="16dp"
+            android:paddingEnd="20dp"
+            app:layout_constraintEnd_toEndOf="@+id/inputBirthday"
+            app:layout_constraintStart_toStartOf="@+id/inputBirthday"
+            app:layout_constraintTop_toBottomOf="@+id/inputBirthday">
+
+            <RadioButton
+                android:id="@+id/genderMale"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/acme"
+                android:drawableStart="@drawable/ic_baseline_male_24"
+                android:text="@string/male"
+                android:layout_marginEnd="30dp"
+                android:textSize="20sp" />
+
+            <RadioButton
+                android:id="@+id/genderFemale"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/acme"
+                android:drawableStart="@drawable/ic_baseline_female_24"
+                android:text="@string/female"
+                android:textSize="20sp" />
+        </RadioGroup>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnUpdateProfile"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="25dp"
+            android:layout_marginRight="25dp"
+            android:layout_marginTop="20dp"
+            android:background="@color/lightGray"
+            android:text="@string/update_profile"
+            android:textColor="@color/black"
+            android:textSize="17sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="@+id/inputGender"
+            app:layout_constraintStart_toStartOf="@+id/inputGender"
+            app:layout_constraintTop_toBottomOf="@+id/inputGender" />
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>

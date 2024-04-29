@@ -16,6 +16,15 @@
         android:theme="@style/Theme.AnimalGallery"
         tools:targetApi="31">
         <activity
+            android:name=".activity.UpdateEmailActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.UpdateProfileActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.UploadProfilePicActivity"
+            android:exported="false" />
+        <activity
             android:name=".activity.ForgotPasswordActivity"
             android:exported="false" />
         <activity

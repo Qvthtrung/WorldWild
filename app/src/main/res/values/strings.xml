@@ -38,6 +38,23 @@
     <string name="male">Male</string>
     <string name="female">Female</string>
     <string name="instruction">Please enter your registered email here,
-        we will send you a reset passwod link</string>
+        we will send you a reset password link</string>
     <string name="sent_password_reset_link">Sent password reset link</string>
+    <string name="upload_your_profile_pictures_here">Upload your profile pictures here</string>
+    <string name="choose_pictures">Choose pictures</string>
+    <string name="upload_picture">Upload picture</string>
+    <string name="edit_profile">Edit profile</string>
+    <string name="looking_for_something_else">Looking for something else?</string>
+    <string name="change_password">Change password</string>
+    <string name="delete_profile">Delete profile</string>
+    <string name="edit_your_profile_information_here">Edit your profile information here</string>
+    <string name="enter_your_password_to_authenticate">First, please enter your password</string>
+    <string name="update_profile">Update profile</string>
+    <string name="change_email">Change Email</string>
+    <string name="authenticate">Authenticate</string>
+    <string name="instruction_change_email">Your password has not been authenticated</string>
+    <string name="your_old_email_address">Your old email address</string>
+    <string name="your_current_email_address">Your current email address:</string>
+    <string name="your_new_email_address">Your new email address:</string>
+    <string name="enter_your_new_email_address">Enter your new email address</string>
 </resources>
