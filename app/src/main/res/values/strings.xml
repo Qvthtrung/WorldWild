@@ -63,4 +63,8 @@
     <string name="confirm_new_password">Confirm new password</string>
     <string name="your_new_password">Your new password:</string>
     <string name="images_you_ve_liked">Images you\'ve liked</string>
+    <string name="customize_your_collections_here">Customize your collections here</string>
+    <string name="create_collection">Create Collection</string>
+    <string name="collection_name">Collection Name</string>
+    <string name="add_to_collection">Add to collection</string>
 </resources>

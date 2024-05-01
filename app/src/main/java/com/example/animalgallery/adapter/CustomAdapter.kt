@@ -2,6 +2,7 @@ package com.example.animalgallery.adapter
 
 import android.content.Context
 import android.content.Intent
+import android.net.Uri
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,10 +11,10 @@ import android.widget.RelativeLayout
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
-import com.example.animalgallery.R
-import com.example.animalgallery.model.AnimalModelAPI
 import com.bumptech.glide.request.target.Target
+import com.example.animalgallery.R
 import com.example.animalgallery.activity.AnimalDetail
+import com.example.animalgallery.model.AnimalModelAPI
 
 class CustomAdapter(private val context: Context, private var animals: List<AnimalModelAPI>): RecyclerView.Adapter<CustomAdapter.MyViewHolder>() {
 
@@ -28,7 +29,6 @@ class CustomAdapter(private val context: Context, private var animals: List<Anim
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         val animal = animals[position]
-        var isFavorite = false
         Glide.with(context)
             .load(animal.regular)
             .apply(
@@ -38,6 +38,7 @@ class CustomAdapter(private val context: Context, private var animals: List<Anim
                 .override(Target.SIZE_ORIGINAL, Target.SIZE_ORIGINAL))
             .into(holder.image)
 
+        // When you click the image
         holder.rlRoot.setOnClickListener {
             // when you click the image
             val intent = Intent(context, AnimalDetail::class.java)
@@ -50,11 +51,13 @@ class CustomAdapter(private val context: Context, private var animals: List<Anim
             context.startActivity(intent)
         }
 
+        // When you click the share button
         holder.btnShare.setOnClickListener{
+            val imageUri = Uri.parse(animal.imageDownloadLink)
             val shareIntent = Intent().apply {
                 action = Intent.ACTION_SEND
                 type = "image/*" // Set data type to image
-                putExtra(Intent.EXTRA_STREAM, animal.imageDownloadLink) // Share image link
+                putExtra(Intent.EXTRA_STREAM, imageUri) // Share image link
                 addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION) // Grant read permission for receiving application
             }
             context.startActivity(Intent.createChooser(shareIntent, "Share via"))

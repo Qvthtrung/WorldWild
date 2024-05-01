@@ -90,6 +90,7 @@ class SearchActivity : AppCompatActivity() {
         //Navigation
         binding.home.setOnClickListener {
             val intent = Intent(this, MainActivity::class.java)
+            intent.flags = Intent.FLAG_ACTIVITY_REORDER_TO_FRONT
             startActivity(intent)
         }
 

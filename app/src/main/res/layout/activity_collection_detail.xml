@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activity.FavoriteListActivity"
+    tools:context=".activity.CollectionDetail"
     android:orientation="vertical"
     android:gravity="center_horizontal">
 
@@ -27,13 +27,13 @@
     </androidx.cardview.widget.CardView>
 
     <TextView
-        android:id="@+id/instruction"
+        android:id="@+id/collectionName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="3dp"
         android:fontFamily="@font/acme"
         android:gravity="center"
-        android:text="@string/images_you_ve_liked"
+        android:text="@string/collection_name"
         android:textSize="30sp"
         android:layout_marginBottom="30dp"/>
 

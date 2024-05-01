@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activity.FavoriteListActivity"
+    tools:context=".activity.MyCollectionsActivity"
     android:orientation="vertical"
     android:gravity="center_horizontal">
 
@@ -33,7 +33,7 @@
         android:layout_marginTop="3dp"
         android:fontFamily="@font/acme"
         android:gravity="center"
-        android:text="@string/images_you_ve_liked"
+        android:text="@string/customize_your_collections_here"
         android:textSize="30sp"
         android:layout_marginBottom="30dp"/>
 
@@ -46,9 +46,15 @@
     <ProgressBar
         android:id="@+id/progressBar"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_height="wrap_content"/>
+
+    <ImageView
+        android:id="@+id/btnCreateCollection"
+        android:layout_width="65dp"
+        android:layout_height="65dp"
+        android:src="@drawable/ic_baseline_add_circle_outline_24"
+        android:layout_gravity="bottom|end"
+        android:layout_marginBottom="10dp"
+        android:layout_marginEnd="10dp"
+        android:contentDescription="@string/create_collection" />
 </LinearLayout>

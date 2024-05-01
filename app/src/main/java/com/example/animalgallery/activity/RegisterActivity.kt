@@ -2,12 +2,12 @@ package com.example.animalgallery.activity
 
 import android.app.DatePickerDialog
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.RadioButton
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
+import androidx.appcompat.app.AppCompatActivity
 import com.example.animalgallery.databinding.ActivityRegisterBinding
 import com.example.animalgallery.model.ReadWriteUserDetail
 import com.google.firebase.auth.FirebaseAuth
@@ -63,16 +63,19 @@ class RegisterActivity : AppCompatActivity() {
         //Navigation
         binding.alreadyHaveAccount.setOnClickListener{
             val intent = Intent(this, LoginActivity::class.java)
+            intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
             startActivity(intent)
         }
 
         binding.home.setOnClickListener {
             val intent = Intent(this, MainActivity::class.java)
+            intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
             startActivity(intent)
         }
 
         binding.searchBtn.setOnClickListener{
             val intent2 = Intent(this, SearchActivity::class.java)
+            intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
             startActivity(intent2)
         }
     }

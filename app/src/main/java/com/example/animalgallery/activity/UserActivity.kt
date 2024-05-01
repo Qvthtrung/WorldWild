@@ -1,9 +1,9 @@
 package com.example.animalgallery.activity
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.appcompat.app.AlertDialog
+import androidx.appcompat.app.AppCompatActivity
 import com.example.animalgallery.databinding.ActivityUserBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
@@ -29,6 +29,12 @@ class UserActivity : AppCompatActivity() {
         //Favorite list button
         binding.favoriteList.setOnClickListener{
             val intent = Intent(this, FavoriteListActivity::class.java)
+            startActivity(intent)
+        }
+
+        //My collections button
+        binding.myCollection.setOnClickListener{
+            val intent = Intent(this, MyCollectionsActivity::class.java)
             startActivity(intent)
         }
 
